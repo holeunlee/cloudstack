@@ -31,8 +31,8 @@ apt install cloudstack-agent -y
 ####### Setup KVM properties
 printf "\nguest.cpu.mode=custom\nguest.cpu.model=SandyBridge" >> /etc/cloudstack/agent/agent.properties
 apt install libvirtd -y
-printf "\nlisten_tls = 0\nlisten_tcp = 0\ntls_port = "16514"\ntcp_port = "16509"\nauth_tcp = "none"\nmdns_adv = 0\n" >> /etc/libvirt/libvirtd.conf
-printf "\nLIBVIRTD_ARGS="--listen"" >> /etc/default/libvirtd
+printf '\nlisten_tls = 0\nlisten_tcp = 0\ntls_port = "16514"\ntcp_port = "16509"\nauth_tcp = "none"\nmdns_adv = 0\n' >> /etc/libvirt/libvirtd.conf
+printf '\nLIBVIRTD_ARGS="--listen"' >> /etc/default/libvirtd
 service restart libvirtd
 
 ####### Setup apparmor to allow stuff
