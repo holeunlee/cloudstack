@@ -18,7 +18,7 @@ if [ hostname --fqdn != $SERVERNAME.$DOMAIN ]
 then
         printf "If statement checked servername\n"
         printf "Changing hostname to $SERVERNAME.$DOMAIN\n"
-        hostnamectl $SERVERNAME.$DOMAIN
+        hostnamectl set-hostname $SERVERNAME.$DOMAIN
         printf "I'll wait 10 seconds before rebooting\n"
         sleep 10
         reboot
