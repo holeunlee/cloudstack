@@ -14,7 +14,7 @@ wget -O - https://download.cloudstack.org/release.asc | sudo tee /etc/apt/truste
 apt update
 
 ####### Check FQDN and reboot after changing (when needed)
-if [ hostname --fqdn != $SERVERNAME.$DOMAIN ]
+if [ $(hostname --fqdn) != $SERVERNAME.$DOMAIN ]
 then
         printf "If statement checked servername\n"
         printf "Changing hostname to $SERVERNAME.$DOMAIN\n"

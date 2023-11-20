@@ -9,7 +9,7 @@ RELEASE=$(cat /etc/lsb-release | grep CODENAME | awk -F'='  '{print $2}')
 VERSION=4.18
 
 ####### Check FQDN and reboot after changing (when needed)
-if [ hostname --fqdn != $SERVERNAME.$DOMAIN ]
+if [ $(hostname --fqdn) != $SERVERNAME.$DOMAIN ]
 then
         printf "If statement checked servername\n"
         printf "Changing hostname to $SERVERNAME.$DOMAIN\n"
