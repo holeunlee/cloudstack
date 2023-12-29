@@ -53,3 +53,8 @@ sudo systemctl restart nfs-kernel-server.service
 
 ####### Finalizing Steps
 cloudstack-setup-management
+
+####### Finalizing Database
+printf "Finalizing Database\n"
+printf "Wait for 2 Minutes\n"
+sleep 120
