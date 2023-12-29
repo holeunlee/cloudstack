@@ -15,9 +15,12 @@ then
         printf "Changing hostname to $SERVERNAME.$DOMAIN\n"
         hostnamectl set-hostname $SERVERNAME.$DOMAIN
         printf "I'll wait 10 seconds before rebooting\n"
-        sleep 10
+        sleep 5
         reboot
 fi
+
+####### Change /etc/hosts
+printf "127.0.0.1 $SERVERNAME.$DOMAIN" >> /etc/hosts
 
 ####### Obtain Cloudstack Packages
 echo "deb https://download.cloudstack.org/ubuntu $RELEASE $VERSION" > /etc/apt/sources.list.d/cloudstack.list
@@ -34,6 +37,7 @@ sudo apt install mysql-server -y
 printf "\n[mysqld]\ninnodb_rollback_on_timeout=1\ninnodb_lock_wait_timeout=600\nmax_connections=350\nlog-bin=mysql-bin\nbinlog-format=ROW" >> /etc/mysql/mysql.conf.d/mysqld.cnf
 server-id = 1
 sudo systemctl restart mysql
+sleep 5
 
 ####### Setup Cloudstack Database Config
 sudo cloudstack-setup-databases cloud:cloud@$DATABASESERVER.$DOMAIN --deploy-as=root
