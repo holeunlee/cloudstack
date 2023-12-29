@@ -40,7 +40,7 @@ sudo systemctl restart mysql
 sleep 5
 
 ####### Setup Cloudstack Database Config
-sudo cloudstack-setup-databases cloud:cloud@$DATABASESERVER.$DOMAIN --deploy-as=root
+sudo cloudstack-setup-databases cloud:cloud@localhost --deploy-as=root
 
 ####### Setup Mounts (Needs update)
 sudo apt update
