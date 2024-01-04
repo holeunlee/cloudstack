@@ -2,21 +2,21 @@
  
 cli=cloudmonkey
 dns_ext=8.8.8.8
-dns_int=10.147.28.6
-gw=10.147.28.1
+dns_int=8.8.4.4
+gw=192.168.98.1
 nmask=255.255.255.0
-hpvr=XenServer
-pod_start=10.147.28.225
-pod_end=10.147.28.234
-vlan_start=10.147.28.235
-vlan_end=10.147.28.254
+hpvr=KVM
+pod_start=192.168.98.100
+pod_end=192.168.98.110
+vlan_start=192.168.98.1
+vlan_end=192.168.98.254
  
 #Put space separated host ips in following
-host_ips=10.147.28.60
+host_ips=192.168.98.100
 host_user=root
 host_passwd=password
-sec_storage=nfs://10.147.28.7/export/home/rohit/secondary
-prm_storage=nfs://10.147.28.7/export/home/rohit/primary
+sec_storage=nfs://192.168.98.100/export/secondary
+prm_storage=nfs://192.168.98.100/export/primary
  
 zone_id=`$cli create zone dns1=$dns_ext internaldns1=$dns_int name=MyZone networktype=Basic | grep ^id\ = | awk '{print $3}'`
 echo "Created zone" $zone_id
